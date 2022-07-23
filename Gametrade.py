@@ -38,7 +38,6 @@ def login(twocaptcha_api_key, mail_address, password, proxies=None):
     else:
         response = requests.post('https://gametrade.jp/signin', cookies=cookies, headers=headers, data=data, allow_redirects=False, proxies=proxies)
 
-    print(response.cookies)
     if "remember_token" in str(response.cookies):
         remember_token = response.cookies.get_dict()["remember_token"]
         return remember_token
